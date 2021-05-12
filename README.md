@@ -8,5 +8,5 @@ Converting regex to NFA.
 
 # Usage
 - Install NodeJs
-- Run the command `node main.js`
+- Run the command `node main.js [Expression]` ex. `node main.js "a+bc"`
 
