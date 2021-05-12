@@ -9,6 +9,7 @@ const regex = process.argv[2];
  * (a+b)*
  * a+bc
  * (1+0)*1
+ * ((1+0)*+(10)*)*
  */
 
 

@@ -4,7 +4,7 @@ const check_end_at = (index, s) => {
         for (; i < s.length; ++i) {
             if (s[i] === '(') {
                 st.push(i)
-            } else if (s[i] == ')') {
+            } else if (s[i] === ')') {
                 st.pop()
             }
 
@@ -74,9 +74,9 @@ const splitExpressions = (s) => {
         limits[0] = 0
         op = 2;
         for (let i = 0; i < s.length; ++i) {
-            if (s[i] == '(') {
+            if (s[i] === '(') {
                 st.push(i);
-            } else if (s[i] == ')') {
+            } else if (s[i] === ')') {
                 st.pop();
             } else if (s[i] !== '*' && st.length === 0) {
                 limits.push(i);
@@ -95,7 +95,7 @@ const splitExpressions = (s) => {
             b = s.slice(limits[i], limits[i+1]);
         }
         
-        if(b[0] == '(' && b[b.length-1] == ')') {
+        if(b[0] === '(' && b[b.length-1] === ')') {
             b = b.slice(1, b.length-1);
         }
         
