@@ -1,4 +1,39 @@
+const check_end_at = (index, s) => {
+    let st = []
+        let i = 0;
+        for (; i < s.length; ++i) {
+            if (s[i] === '(') {
+                st.push(i)
+            } else if (s[i] == ')') {
+                st.pop()
+            }
+
+            if (st.length === 0) {
+                break;
+            }
+        }
+
+        if (i === index) {
+            return true;
+        }
+
+        return false;
+}
+
+
 const splitExpressions = (s) => {
+    while (s.length > 1) {
+        if (s[0] === '(' && s[s.length-1] === ')') {
+            if (check_end_at(s.length-1, s)) {
+                s = s.slice(1, s.length-1);
+            } else {
+                break;
+            }
+        } else {
+            break;
+        }
+    }
+    
     if (s.length === 1) {
         return {
             blocks: [s],
@@ -13,22 +48,8 @@ const splitExpressions = (s) => {
         };
     }
     
-    if (s[0] == '(' && s[s.length-2] === ')' && s[s.length-1] === '*') {
-        let st = []
-        let i = 0;
-        for (; i < s.length; ++i) {
-            if (s[i] === '(') {
-                st.push(i)
-            } else if (s[i] == ')') {
-                st.pop()
-            }
-
-            if (st.length === 0) {
-                break;
-            }
-        }
-
-        if (i === s.length-2) {
+    if (s[0] === '(' && s[s.length-2] === ')' && s[s.length-1] === '*') {
+        if (check_end_at(s.length-2, s)) {
             return {
                 blocks: [s.slice(1, s.length-2)],
                 op: 0 // star 
