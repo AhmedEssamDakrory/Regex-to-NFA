@@ -1,5 +1,6 @@
 const splitExpressions = require('./parse');
-const {Node, decompose, generateNFA, printNFA, toJson} = require('./nfa')
+const {Node, decompose, generateNFA, printNFA, toJson} = require('./nfa');
+const {validate_regex} = require('./validate');
 
 const regex = process.argv[2];
 
@@ -10,5 +11,12 @@ const regex = process.argv[2];
  * (1+0)*1
  */
 
-const root = generateNFA("a+bc");
-toJson(root);
+
+if (validate_regex(regex)) {
+    const root = generateNFA(regex);
+    toJson(root);
+} else {
+    console.log("Invalid Regex");
+}
+
+
