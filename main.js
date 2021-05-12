@@ -2,7 +2,8 @@ const splitExpressions = require('./parse');
 const {Node, decompose, generateNFA, printNFA, toJson} = require('./nfa');
 const {validate_regex} = require('./validate');
 
-const regex = process.argv[2];
+let regex = process.argv[2];
+regex = regex.replace(/\s/g, '');
 
 /**
  * (ab)*+cd
