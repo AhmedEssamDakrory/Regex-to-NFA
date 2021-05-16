@@ -1,0 +1,11 @@
+{"0":{"epsilon":[1,6],"isTerminatingState":false},
+    "1":{"0":[2],"isTerminatingState":false},
+        "2":{"1":[3],"isTerminatingState":false},
+            "3":{"epsilon":[4],"isTerminatingState":false},
+                "4":{"epsilon":[5],"isTerminatingState":false},
+                    "5":{"isTerminatingState":true},
+                    "6":{"2":[7],"isTerminatingState":false},
+                        "7":{"3":[8],"isTerminatingState":false},
+                            "8":{"epsilon":[9],"isTerminatingState":false},
+                                "9":{"epsilon":[5],"isTerminatingState":false},
+                                    "startingState":0}
